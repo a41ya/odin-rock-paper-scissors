@@ -1,6 +1,3 @@
-/*test to see if i set everything up correctly 
-console.log ("hey"); */
-
 //computer choice function
 function getComputerChoice () {
  const number = Math.random ();
@@ -14,3 +11,21 @@ function getComputerChoice () {
 }
 
 console.log (getComputerChoice());
+
+//human choice function
+
+function getHumanChoice () {
+  let choice = prompt ("type rock, paper or scissors");
+
+  if (choice === "rock") {
+    return "rock";
+  } else if (choice === "paper") {
+    return "paper";
+  } else if (choice === "scissors"){
+    return "scissors";
+  } else {
+    return "you don't choose anything";
+  }
+}
+
+console.log(getHumanChoice());
