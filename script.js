@@ -13,7 +13,7 @@ function getComputerChoice () {
 
 //human choice function
 function getHumanChoice () {
-  let choice = prompt ("type rock, paper or scissors");
+  let choice = prompt ("type rock, paper or scissors").toLowerCase();
 
   if (choice === "rock") {
     return "rock";
@@ -27,61 +27,68 @@ function getHumanChoice () {
 }
 
 
-//score variables
-let humanScore = 0;
-let computerScore = 0;
-
-
-//play round logic
-function playRound (humanChoice, computerChoice) {
-
-  if (humanChoice === "rock" && computerChoice === "rock") {
-    return "tie";
-  } else if (humanChoice === "paper" && computerChoice === "rock") {
-    return "win";
-  } else if (humanChoice === "scissors" && computerChoice === "rock") {
-    return "lose";
-  }
-
-  else if (humanChoice === "rock" && computerChoice === "paper") {
-    return "lose";
-  } else if (humanChoice === "paper" && computerChoice === "paper") {
-    return "tie";
-  } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    return "win";
-  }
-
-  else if (humanChoice === "rock" && computerChoice === "scissors") {
-    return "win";
-  } else if (humanChoice === "paper" && computerChoice === "scissors") {
-    return "lose";
-  } else if (humanChoice === "scissors" && computerChoice === "scissors") {
-    return "tie";
-  }
-}
-
-
 //round result with log in console
 function playGame () {
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
+  let humanScore = 0;
+  let computerScore = 0;
 
-  const result = playRound(humanSelection, computerSelection);
+  let humanSelection = getHumanChoice();
+  let computerSelection = getComputerChoice();
 
-  if (result === "win") {
-    humanScore++;
-  } else if (result === "lose") {
-    computerScore++;
-  }
+  //вот эту всю хуйню с повторениями стереть, это пиздец
+  playRound(humanSelection, computerSelection);
+  humanSelection = getHumanChoice();
+  computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+  humanSelection = getHumanChoice();
+  computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+  humanSelection = getHumanChoice();
+  computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+  humanSelection = getHumanChoice();
+  computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+  humanSelection = getHumanChoice();
+  computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+
+    //play round logic
+    function playRound (humanChoice, computerChoice) {
+
+    if (humanChoice === "rock" && computerChoice === "rock") {
+      console.log("tie");
+    } else if (humanChoice === "paper" && computerChoice === "rock") {
+      humanScore++
+      console.log("you win");
+    } else if (humanChoice === "scissors" && computerChoice === "rock") {
+      computerScore++;
+      console.log("you lose");
+    }
+
+    else if (humanChoice === "rock" && computerChoice === "paper") {
+      computerScore++;
+      console.log("you lose");
+    } else if (humanChoice === "paper" && computerChoice === "paper") {
+      console.log("tie");
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+      humanScore++
+      console.log("you win");
+    }
+
+    else if (humanChoice === "rock" && computerChoice === "scissors") {
+      humanScore++
+      console.log("you win");
+    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+      computerScore++;
+      console.log("you lose");
+    } else if (humanChoice === "scissors" && computerChoice === "scissors") {
+      console.log("tie");
+    }
+    }
   
-  console.log (`you choose ${humanSelection}, computer choose ${computerSelection}. result is a ${result}`)
   console.log (humanScore, computerScore);
 
 }
 
-//temporary until i learn loops
-playGame();
-playGame();
-playGame();
-playGame();
 playGame();
