@@ -1,0 +1,79 @@
+body{
+  background-color: rgb(11, 11, 11);
+
+  font-family: 'IBM Plex Mono', monospace;
+  color: rgb(240, 240, 240);
+  margin: 0;
+  padding: 0;
+}
+
+.secondaryText{
+  color: rgb(196, 196, 196);
+}
+
+#gameUI {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 80px;
+}
+
+#gameTitle{
+  text-align: center;
+}
+
+#choices{
+  display: flex;
+  padding: 60px 0;
+  gap: 80px;
+}
+
+.choice{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#result{
+  font-size: 24px;
+  padding: 30px 0;
+  color: rgb(0, 255, 0);
+}
+
+#round{
+  padding-bottom: 10px;
+}
+
+#roundResult{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score{
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 40px;
+}
+
+#log{
+  text-align: center;
+}
+
+#logList{
+  list-style: none;
+  line-height: 30px;
+}
+
+#prevRound{
+  display: none;
+}

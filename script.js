@@ -35,24 +35,6 @@ function playGame () {
   let humanSelection = getHumanChoice();
   let computerSelection = getComputerChoice();
 
-  //вот эту всю хуйню с повторениями стереть, это пиздец
-  playRound(humanSelection, computerSelection);
-  humanSelection = getHumanChoice();
-  computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-  humanSelection = getHumanChoice();
-  computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-  humanSelection = getHumanChoice();
-  computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-  humanSelection = getHumanChoice();
-  computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-  humanSelection = getHumanChoice();
-  computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-
     //play round logic
     function playRound (humanChoice, computerChoice) {
 
