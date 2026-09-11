@@ -5,6 +5,8 @@ body{
   color: rgb(240, 240, 240);
   margin: 0;
   padding: 0;
+
+  cursor: default;
 }
 
 .secondaryText{
@@ -35,6 +37,12 @@ body{
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+.choice:hover{
+  cursor: grab;
+}
+.choice:active{
+  cursor: grabbing;
 }
 
 #result{
