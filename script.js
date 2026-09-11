@@ -14,6 +14,9 @@ const scissorsBtn = document.querySelector("#scissorsBtn");
 const currentRound = document.querySelector("#currentRound");
 
 const prevRound = document.querySelector("#prevRound");
+const prevRoundHuman = document.querySelector("#prevRoundHuman");
+const prevRoundComputer = document.querySelector("#prevRoundComputer");
+const prevRoundCount = document.querySelector("#prevRoundCount");
 const result = document.querySelector("#result");
 
 
@@ -112,9 +115,21 @@ function playRound (){
 
   if (roundResult === "WIN"){
     humanScore++;
+    result.textContent = "YOU WIN!"
+    result.style.color = "rgb(0, 255, 0)";
   } else if (roundResult === "LOSE"){
     compScore++;
+    result.textContent = "YOU LOSE"
+    result.style.color = "rgb(255, 0, 0)";
+  } else {
+    result.textContent = "TIE."
+    result.style.color = "rgb(255, 255, 0)";
   }
+  
+  prevRoundCount.textContent = `round 0${roundCounter}`;
+  if (roundCounter >= 10){
+  prevRoundCount.textContent = `round ${roundCounter}`;
+ }
 
   roundCounter++;
 }
@@ -130,6 +145,9 @@ function updateDOM (){
  if (roundCounter >= 10){
   currentRound.textContent = `> round ${roundCounter}`;
  }
+
+ prevRound.style.display = "block";
+ 
 }
 
 

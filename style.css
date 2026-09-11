@@ -48,7 +48,7 @@ body{
 #result{
   font-size: 24px;
   padding: 30px 0;
-  color: rgb(0, 255, 0);
+  text-align: center;
 }
 
 #round{
