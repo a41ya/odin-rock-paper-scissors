@@ -47,7 +47,7 @@ body{
 
 #result{
   font-size: 24px;
-  padding: 30px 0;
+  padding-top: 30px;
   text-align: center;
 }
 
@@ -70,7 +70,7 @@ body{
 .score{
   font-size: 40px;
   font-weight: bold;
-  padding-bottom: 40px;
+  padding: 40px 0;
 }
 
 #log{
@@ -85,4 +85,19 @@ body{
 
 #prevRound{
   display: none;
+}
+
+.newGameBtn{
+  color: black;
+  background-color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 40px;
+  font-size: 18px;
+}
+.newGameBtn:hover{
+  background-color: aliceblue;
+}
+.newGameBtn:active{
+  padding: 16px 31px;
 }

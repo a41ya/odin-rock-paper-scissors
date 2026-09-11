@@ -2,6 +2,11 @@
 //DOM
 //
 
+//ui
+const gameUI = document.querySelector("#gameUI");
+const gameTitle = document.querySelector("#gameTitle")
+
+
 //player choices
 const choices = document.querySelector("#choices");
 
@@ -11,6 +16,7 @@ const scissorsBtn = document.querySelector("#scissorsBtn");
 
 
 //round stats
+const roundResultsDiv = document.querySelector("#roundResultDiv");
 const currentRound = document.querySelector("#currentRound");
 
 const prevRound = document.querySelector("#prevRound");
@@ -43,6 +49,7 @@ function handleGame(event){
   playRound();
   updateDOM();
   updateLog();
+  determineWinner();
 }
 
 
@@ -81,13 +88,10 @@ function getHumanChoice (event) {
 
   if (parentElement === rockBtn) {
     humanChoice = "rock";
-    console.log(humanChoice);
   } else if (parentElement === paperBtn) {
     humanChoice = "paper";
-    console.log(humanChoice);
   } else if (parentElement === scissorsBtn){
     humanChoice = "scissors";
-    console.log(humanChoice);
   } 
 }
 
@@ -95,29 +99,21 @@ function getHumanChoice (event) {
 //determine round result
 function playRound (){
   getComputerChoice();
-  console.log(computerChoice);
 
   if (humanChoice === computerChoice){
     roundResult = "TIE";
-    console.log(roundResult);
   } else if (humanChoice === "rock" && computerChoice === "paper"){
     roundResult = "LOSE";
-    console.log(roundResult);
   } else if (humanChoice === "rock" && computerChoice === "scissors"){
     roundResult = "WIN";
-    console.log(roundResult);
   } else if (humanChoice === "paper" && computerChoice === "scissors"){
     roundResult = "LOSE";
-    console.log(roundResult);
   } else if (humanChoice === "paper" && computerChoice === "rock"){
     roundResult = "WIN";
-    console.log(roundResult);
   } else if (humanChoice === "scissors" && computerChoice === "paper"){
     roundResult = "WIN";
-    console.log(roundResult);
   } else if (humanChoice === "scissors" && computerChoice === "rock"){
     roundResult = "LOSE";
-    console.log(roundResult);
   }
 
   if (roundResult === "WIN"){
@@ -184,4 +180,60 @@ function updateLog (){
   logItem.textContent = `${prevRoundCount.textContent} ${prevRoundHumanChoice} ${prevRoundComputerChoice} ${roundResult}`;
 
   logList.appendChild(logItem);
+}
+
+
+//determine the winner
+function determineWinner (){
+  if (humanScore === 5){
+    gameOver('human');
+  } else if (compScore === 5){
+    gameOver();
+  }
+}
+
+function gameOver (who){
+  gameTitle.style.display = "none";
+  choices.style.display = "none";
+  roundResultsDiv.style.display = "none";
+
+  const gameOverTitle = document.createElement("h1");
+  const gameOverMessage = document.createElement("p");
+  const gameOverMessageInvite = document.createElement("p");
+  const gameOverImg = document.createElement("img");
+  const newGameBtn = document.createElement("button");
+
+
+  gameOverImg.style.width = "300px";
+
+  newGameBtn.classList.add("newGameBtn");
+  newGameBtn.textContent = "start new game";
+  
+  newGameBtn.addEventListener("click", () => {
+  location.reload();
+});
+  
+
+  gameUI.prepend(newGameBtn);
+  gameUI.prepend(gameOverMessageInvite);
+  gameUI.prepend(gameOverImg);
+  gameUI.prepend(gameOverMessage);
+  gameUI.prepend(gameOverTitle);
+  
+
+  if (who === 'human'){
+    console.log("you won");
+    gameOverTitle.textContent = 'YOU WIN.';
+    gameOverMessage.textContent = 'the computer never stood a chance.';
+    gameOverMessageInvite.textContent = 'ready for another round?';
+
+    gameOverImg.src = "images/happy.gif"
+  } else {
+    console.log("you lose")
+    gameOverTitle.textContent = 'GAME OVER';
+    gameOverMessage.textContent = 'the computer got you this time.';
+    gameOverMessageInvite.textContent = 'care to try again?';
+
+    gameOverImg.src = "images/game-over.gif"
+  }
 }
