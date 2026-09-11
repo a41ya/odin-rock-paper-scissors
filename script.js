@@ -222,14 +222,12 @@ function gameOver (who){
   
 
   if (who === 'human'){
-    console.log("you won");
     gameOverTitle.textContent = 'YOU WIN.';
     gameOverMessage.textContent = 'the computer never stood a chance.';
     gameOverMessageInvite.textContent = 'ready for another round?';
 
     gameOverImg.src = "images/happy.gif"
   } else {
-    console.log("you lose")
     gameOverTitle.textContent = 'GAME OVER';
     gameOverMessage.textContent = 'the computer got you this time.';
     gameOverMessageInvite.textContent = 'care to try again?';
