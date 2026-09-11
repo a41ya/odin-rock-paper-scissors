@@ -27,6 +27,9 @@ const computerScore = document.querySelector("#computerScore");
 
 //log
 const gameLog = document.querySelector("#gameLog");
+const logList = document.querySelector("#logList");
+const logPlug = document.querySelector("#logPlug");
+
 
 
 //
@@ -39,6 +42,7 @@ function handleGame(event){
   getHumanChoice(event);
   playRound();
   updateDOM();
+  updateLog();
 }
 
 
@@ -169,6 +173,15 @@ function updateDOM (){
 
  prevRoundHuman.textContent = `you ${prevRoundHumanChoice}`;
  prevRoundComputer.textContent = `computer ${prevRoundComputerChoice}`;
+
+ logPlug.remove();
 }
 
+//logging of previous rounds
+function updateLog (){
+  const logItem = document.createElement("li");
 
+  logItem.textContent = `${prevRoundCount.textContent} ${prevRoundHumanChoice} ${prevRoundComputerChoice} ${roundResult}`;
+
+  logList.appendChild(logItem);
+}
