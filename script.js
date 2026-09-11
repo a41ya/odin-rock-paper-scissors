@@ -35,7 +35,7 @@ choices.addEventListener('click', handleGame)
 function handleGame(event){
   getHumanChoice(event);
   playRound();
-  // next updateDOM();
+  updateDOM();
 }
 
 
@@ -43,6 +43,12 @@ function handleGame(event){
 let humanChoice = "";
 let computerChoice = "";
 let roundResult = "";
+
+
+//score collectors
+let humanScore = 0;
+let compScore = 0;
+let roundCounter = 1;
 
 
 //computer choice function
@@ -103,7 +109,27 @@ function playRound (){
     roundResult = "LOSE";
     console.log(roundResult);
   }
+
+  if (roundResult === "WIN"){
+    humanScore++;
+  } else if (roundResult === "LOSE"){
+    compScore++;
+  }
+
+  roundCounter++;
 }
 
+
+//manipulate DOM
+function updateDOM (){
+ playerScore.textContent = `${humanScore}`;
+ computerScore.textContent = `${compScore}`;
+
+ currentRound.textContent = `> round 0${roundCounter}`;
+
+ if (roundCounter >= 10){
+  currentRound.textContent = `> round ${roundCounter}`;
+ }
+}
 
 
