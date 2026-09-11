@@ -47,11 +47,14 @@ let humanChoice = "";
 let computerChoice = "";
 let roundResult = "";
 
-
 //score collectors
 let humanScore = 0;
 let compScore = 0;
 let roundCounter = 1;
+
+//choice collectors
+let prevRoundHumanChoice = "";
+let prevRoundComputerChoice = "";
 
 
 //computer choice function
@@ -148,6 +151,24 @@ function updateDOM (){
 
  prevRound.style.display = "block";
  
+ if (humanChoice === "rock"){
+  prevRoundHumanChoice = "✊";
+ } else if (humanChoice === "paper"){
+  prevRoundHumanChoice = "✋";
+ } else if (humanChoice === "scissors"){
+  prevRoundHumanChoice = "✌️";
+ }
+
+ if (computerChoice === "rock"){
+  prevRoundComputerChoice = "✊";
+ } else if (computerChoice === "paper"){
+  prevRoundComputerChoice = "✋";
+ } else if (computerChoice === "scissors"){
+  prevRoundComputerChoice = "✌️";
+ }
+
+ prevRoundHuman.textContent = `you ${prevRoundHumanChoice}`;
+ prevRoundComputer.textContent = `computer ${prevRoundComputerChoice}`;
 }
 
 
