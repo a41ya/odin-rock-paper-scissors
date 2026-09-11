@@ -4,7 +4,7 @@ A browser-based Rock Paper Scissors game built with HTML, CSS and JavaScript as 
 
 ## Preview
 
-[Rock Paper Scissors](#)
+![Rock Paper Scissors](./images/preview.png)
 
 ## Live Demo
 
