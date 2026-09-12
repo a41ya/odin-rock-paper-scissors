@@ -211,7 +211,7 @@ function gameOver (who){
   
   newGameBtn.addEventListener("click", () => {
   location.reload();
-});
+  });
   
 
   gameUI.prepend(newGameBtn);
